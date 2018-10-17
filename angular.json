@@ -50,7 +50,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "dragdrop-protractor-issue:build"
+            "browserTarget": "dragdrop-protractor-issue:build",
+            "port": 4201
           },
           "configurations": {
             "production": {
@@ -123,5 +124,10 @@
       }
     }
   },
-  "defaultProject": "dragdrop-protractor-issue"
+  "defaultProject": "dragdrop-protractor-issue",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
