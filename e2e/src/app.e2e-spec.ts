@@ -7,8 +7,18 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  const cardToDragDrop = 'Add "blockchain" to name';
+
+
+  it(`should have ${cardToDragDrop} in the todo column`, () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to dragdrop-protractor-issue!');
+    expect(page.listHasCard('To do', cardToDragDrop)).toBe(true);
+  });
+
+  it(`should allow you to drag ${cardToDragDrop} to the Done column`, () => {
+    page.navigateTo();
+    page.dragDropCard('To do', cardToDragDrop, 'Done');
+    expect(page.listHasCard('Done', cardToDragDrop)).toBe(true);
+    page.sleep(3000);
   });
 });
