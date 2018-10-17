@@ -17,8 +17,9 @@ describe('workspace-project App', () => {
 
   it(`should allow you to drag ${cardToDragDrop} to the Done column`, () => {
     page.navigateTo();
-    page.dragDropCard('To do', cardToDragDrop, 'Done');
-    expect(page.listHasCard('Done', cardToDragDrop)).toBe(true);
+    page.dragDropCard('To do', cardToDragDrop, 'Done').then(() => {
+      expect(page.listHasCard('Done', cardToDragDrop)).toBe(true);
+    });
     page.sleep(3000);
   });
 });

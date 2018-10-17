@@ -17,7 +17,15 @@ export class AppPage {
     const targetList = this.getDropTarget(targetListName);
     const card = this.getCard(sourceList, cardTitle);
 
-    return browser.actions().dragAndDrop(card, targetList).perform();
+    return this.dragAndDrop(card, targetList);
+  }
+
+  private async dragAndDrop ( $element, $destination ) {
+    await browser.actions().mouseMove( $element ).perform();
+    await browser.actions().mouseDown( $element ).perform();
+    await browser.actions().mouseMove( {x: 10, y: 0 } ).perform();
+    await browser.actions().mouseMove( $destination ).perform();
+    return browser.actions().mouseUp().perform();
   }
 
   sleep(duration: number) {
