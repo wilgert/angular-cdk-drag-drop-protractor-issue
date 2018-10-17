@@ -5,7 +5,7 @@
 4.  ng serve
 5.  ng e2e
 6.  See that both e2e tests pass
-7.  git checkout 7.0.0-beta.2
+7.  git checkout 7.0.0-rc.2
 8.  npm install
 9.  ng e2e
 10. See that now the second test fails because the card is not dragged and dropped.
