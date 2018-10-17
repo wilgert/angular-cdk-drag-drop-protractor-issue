@@ -25,7 +25,7 @@ export class AppPage {
   }
 
   private getList(listName: string) {
-    return element(by.cssContainingText('.list', listName));
+    return element(by.cssContainingText('.demo-list', listName));
   }
 
   private getCard(list, cardTitle: string) {
@@ -33,6 +33,6 @@ export class AppPage {
   }
 
   private getDropTarget(listName: string) {
-    return this.getList(listName).element(By.css('cdk-drop'));
+    return this.getList(listName).element(By.css('[cdkDropList]'));
   }
 }
